@@ -6,7 +6,6 @@ const axiosInstance = Axios.create({
 
 axiosInstance.defaults.headers.common['Autherization'] = 'AUTH_TOKEN_FROM_AXIOS';
 axiosInstance.interceptors.request.use(request => {
-    console.log(request);
     return request;
 })
 

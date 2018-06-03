@@ -19,10 +19,14 @@ class NewPost extends Component {
 
         Axios.post('/posts', data)
             .then(response => {
-                console.log(response);
+                //console.log(response);
             }).catch(response => {
-                console.log(response);
+                //console.log(response);
             })
+    }
+
+    componentDidMount(){
+        console.log(this.props);
     }
 
     render () {

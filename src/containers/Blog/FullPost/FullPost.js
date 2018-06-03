@@ -9,15 +9,17 @@ class FullPost extends Component {
         lodedPost : null
     }
 
-    componentDidUpdate(){
-        if(this.props.selectPostId && 
+    componentDidMount(){
+        console.log(this.props)
+
+        if(this.props.match.params.id && 
             (!this.state.lodedPost || 
                 (this.state.lodedPost.id !== this.props.selectPostId))){
-            axios.get('/posts/'+this.props.selectPostId)
+            axios.get('/posts/'+this.props.match.params.id)
                 .then(response => {
                     this.setState({lodedPost: response.data})
                 }).catch(response =>{
-                    console.log(response);
+                    //console.log(response);
                 });
         }
     }
@@ -25,9 +27,9 @@ class FullPost extends Component {
     deletePostHandler = () => {
         axios.delete('/posts/'+this.props.selectPostId)
             .then(response => {
-                console.log(response);
+                //console.log(response);
             }).catch(response => {
-                console.log(response);
+                //console.log(response);
             });
     }
 
